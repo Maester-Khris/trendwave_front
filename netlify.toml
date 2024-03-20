@@ -1,2 +1,2 @@
 [build]
-  command = "npm install --force && ng build --configuration productino"
+  command = "npm install --force && ng build --configuration production"
