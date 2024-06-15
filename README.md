@@ -1,238 +1,357 @@
-to edit
 
-<!-- # [Paper Kit 2 Angular - Free Bootstrap 4 UI Kit](https://demos.creative-tim.com/paper-kit-2-angular/)
-
-![version](https://img.shields.io/badge/version-1.5.0-blue.svg) [![license][license-badge]][LICENSE] [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/paper-kit-2-angular.svg?maxAge=2592000)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aopen+is%3Aissue) [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/creativetimofficial/paper-kit-2-angular.svg?maxAge=259200)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aissue+is%3Aclosed) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
-![Paper Kit 2 Angular](https://s3.amazonaws.com/creativetim_bucket/products/65/original/opt_pk2_angular_thumbnail.jpg "Paper Kit 2 Angular Free")
-
-Paper Kit 2 Angular is a free Bootstrap 4 UI Kit with pale colors, beautiful typography built for Angular 7.
-
-All components are fully responsive and look great on every screen size. Transitions, shadows, colors, they all resemble the flow you would have using pieces of paper.
-
-We have created Paper UI Kit kit having pastel colors and paper in mind. It feels light, fresh and easy to go through.
-
-Paper Kit 2 Angular is using Ng Bootstrap (https://ng-bootstrap.github.io/#/home), as core framework.
-
-**Bootstrap 4 support**
-
-Paper Kit 2 Angular is built on top of Bootstrap 4, so it fully supports it. Most of the elements from the framework are re-designed to resemble sheets of paper and color pastels. If the are elements that we have not touched, they will gracefully fall back to the Bootstrap 4 default.
-
-## Table of Contents
-
-* [Versions](#versions)
-* [Demo](#demo)
-* [Quick Start](#quick-start)
-* [Documentation](#documentation)
-* [File Structure](#file-structure)
-* [Browser Support](#browser-support)
-* [Resources](#resources)
-* [Reporting Issues](#reporting-issues)
-* [Technical Support or Questions](#technical-support-or-questions)
-* [Licensing](#licensing)
-* [Useful Links](#useful-links)
+ "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  },
 
 
-## Versions
+Old code
+<!-- <app-basicelements></app-basicelements> -->
+<!-- <app-navigation></app-navigation>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Progress Bar</h3>
+                    <br/>
+                </div>
+                <ngb-progressbar type="success" class="mt-0" [value]="25">25</ngb-progressbar><br>
+                <ngb-progressbar type="info" class="mt-0" [value]="50"><span class="h6 mb-0">Copying file <b>2 of 4</b> ...</span></ngb-progressbar><br>
+                <ngb-progressbar type="warning" class="mt-0" [value]="75" [striped]="true" [animated]="true"><i>50%</i></ngb-progressbar><br>
+                <ngb-progressbar type="danger" class="mt-0" [value]="100" [striped]="true">Completed!</ngb-progressbar>
 
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-kit-2)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-kit-2-angular)
+            </div>
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Pagination</h3>
+                    <br/>
+                </div>
+                <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+                <br/>
+                <ngb-pagination [collectionSize]="100" [(page)]="page1" [maxSize]="5" [rotate]="true"></ngb-pagination>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Navigation Tabs</h3>
+                </div>
 
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <ngb-tabset [justify]="'center'">
+                            <ngb-tab title="Home">
+                                <ng-template ngbTabContent>
+                                    <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient. With a smooth metal surface that seamlessly meets the new Retina HD display.</p>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab title="Profile">
+                                <ng-template ngbTabContent>
+                                    <p>Here is your profile.</p>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab title="Messages">
+                                <ng-template ngbTabContent>
+                                    <p>Here are your messages.</p>
+                                </ng-template>
+                            </ngb-tab>
+                        </ngb-tabset>
+                    </div>
+                </div>
 
-| HTML | Angular |
-| --- | --- |
-| ![Paper Kit 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/61/opt_pk2_thumbnail.jpg) | ![Paper Kit 2 Angular](https://s3.amazonaws.com/creativetim_bucket/products/65/opt_pk2_angular_thumbnail.jpg)
+            </div>
 
-## Demo
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Labels</h3>
+                </div>
+                <span class="label label-default">Default</span>
+                <span class="label label-primary">Primary</span>
+                <span class="label label-info">Info</span>
+                <span class="label label-success">Success</span>
+                <span class="label label-warning">Warning</span>
+                <span class="label label-danger">Danger</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section section-notifications" id="notifications">
+    <div class="container">
+        <div class="tim-title">
+            <h3>Notification</h3>
+        </div>
+    </div>
+    <app-notification></app-notification>
+</div>
+<app-typography></app-typography>
+<div class="section javascript-components">
+    <div class="container">
+        <div class="tim-title">
+            <h2>Angular Native Components</h2>
+        </div>
+        <div class="row" id="modals">
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Modal</h3>
+                </div>
+                <app-modal-component></app-modal-component>
+            </div>
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Popovers</h3>
+                </div>
 
-- [Start page](https://demos.creative-tim.com/paper-kit-2-angular/home)
-- [Landing Page](https://demos.creative-tim.com/paper-kit-2-angular/landing)
-- [Register Page](https://demos.creative-tim.com/paper-kit-2-angular/signup)
-- [Profile Page](https://demos.creative-tim.com/paper-kit-2-angular/user-profile)
+                <button type="button" class="btn btn-outline-danger btn-round" placement="right"
+                    ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on right">
+                    on right
+                </button>
 
-[View More](https://demos.creative-tim.com/paper-kit-2-angular/).
+                <button type="button" class="btn btn-outline-danger btn-round" placement="top"
+                    ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on top">
+                    on top
+                </button>
 
+                <button type="button" class="btn btn-outline-danger btn-round" placement="left"
+                    ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on left">
+                    on left
+                </button>
 
-## Quick start
+                <button type="button" class="btn btn-outline-danger btn-round" placement="bottom"
+                    ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on bottom">
+                    on bottom
+                </button>
 
-Quick start options:
+            </div>
+            <br/>
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Datepicker</h3>
+                </div>
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                                    <input class="form-control" placeholder="yyyy-mm-dd"
+                                        name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true" (blur)="focus=false" />
+                                    <div class="input-group-append">
+                                        <span class="glyphicon glyphicon-calendar input-group-text">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="tim-title">
+                    <h3>Tooltips</h3>
+                </div>
 
-- [Download from Github](https://github.com/creativetimofficial/pk2-angular.git).
-- [Download from Creative Tim](https://www.creative-tim.com/product/paper-kit-2-angular).
-- Clone the repo: `git clone https://github.com/creativetimofficial/pk2-angular.git`.
+                <button type="button" class="btn btn-outline-danger btn-round" placement="right" ngbTooltip="Tooltip on right">
+                    on right
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-round" placement="left" ngbTooltip="Tooltip on left">
+                on left
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-round" placement="top" ngbTooltip="Tooltip on top">
+                    on top
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-round" placement="bottom" ngbTooltip="Tooltip on bottom">
+                    on bottom
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section" id="carousel">
+    <div class="container">
+        <div class="tim-title">
+            <h3>Carousel</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+                <div class="card page-carousel">
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                            <img src="./assets/img/soroush-karimi.jpg" alt="Random first slide">
+                            <div class="carousel-caption">
+                                <p>Somewhere</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="./assets/img/federico-beccari.jpg" alt="Random second slide">
+                            <div class="carousel-caption">
+                                <p>Somewhere else</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="./assets/img/joshua-stannard.jpg" alt="Random third slide">
+                            <div class="carousel-caption">
+                                <p>Here it is</p>
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section section-dark section-nucleo-icons">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <h2 class="title">Nucleo Icons</h2><br/>
+                <p class="description">
+                    Now UI Kit comes with 100 custom icons made by our friends from NucleoApp. The official package contains over 2.100 thin icons which are looking great in combination with Now UI Kit Make sure you check all of them and use those that you like the most.
+                </p><br/>
+                <a [routerLink]="['/nucleoicons']" class="btn btn-danger btn-round">View Demo Icons</a>
+                <a href="https://nucleoapp.com/?ref=1712" class="btn btn-outline-danger btn-round" target="_blank">View All Icons</a>
+            </div>
 
+            <div class="col-lg-6 col-md-12">
+                <div class="icons-container">
+                    <i class="nc-icon nc-time-alarm"></i>
+                    <i class="nc-icon nc-atom"></i>
+                    <i class="nc-icon nc-camera-compact"></i>
+                    <i class="nc-icon nc-watch-time"></i>
+                    <i class="nc-icon nc-key-25"></i>
+                    <i class="nc-icon nc-diamond"></i>
+                    <i class="nc-icon nc-user-run"></i>
+                    <i class="nc-icon nc-layout-11"></i>
+                    <i class="nc-icon nc-badge"></i>
+                    <i class="nc-icon nc-bulb-63"></i>
+                    <i class="nc-icon nc-favourite-28"></i>
+                    <i class="nc-icon nc-planet"></i>
+                    <i class="nc-icon nc-tie-bow"></i>
+                    <i class="nc-icon nc-zoom-split"></i>
+                    <i class="nc-icon nc-cloud-download-93"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section section-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+                <h2 class="title">Completed with examples</h2>
+                <p class="description">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go. More importantly, looking at them will give you a picture of what you can built with this powerful kit.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto">
+                <div class="card card-register">
+                    <h3 class="title">Welcome</h3>
+                    <div class="social-line text-center">
+                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                    <form class="register-form">
+                        <label>Email</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="nc-icon nc-email-85"></i>
+                            </span>
+                            </div>
 
-## Documentation
+                            <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                        </div>
 
-Once you download the archive, you will be able find a tutorial page inside it explaining how to start using it. You can also check the [documentation online](https://demos.creative-tim.com/paper-kit-2-angular/documentation/tutorial).
+                        <label>Password</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="nc-icon nc-key-25"></i>
+                            </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                        </div>
+                        <button class="btn btn-danger btn-block btn-round">Register</button>
+                    </form>
+                    <div class="forgot">
+                        <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="col text-center" routerLinkActive="active">
+                    <a [routerLink]="['/signup']" class="btn btn-outline-neutral btn-round btn-lg">View Register Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section section-dark">
+    <div class="container">
+        <div class="row example-page">
+            <div class="col-md-6 text-center" routerLinkActive="active">
+                <a [routerLink]="['/landing']">
+                    <img src="./assets/img/examples/landing-page.JPG" alt="Rounded Image" class="img-rounded img-responsive" style="width: 100%">
+                    <a [routerLink]="['/landing']" class="btn btn-outline-neutral btn-round">Landing Page</a>
+                </a>
+            </div>
 
-## File Structure
-
-Within the download you'll find the following directories and files:
-
-```
-paper-kit-2-angular
-├── CHANGELOG.md
-├── ISSUE_TEMPLATE.md
-├── LICENSE.md
-├── README.md
-├── angular.json
-├── documentation
-│   ├── css
-│   ├── js
-│   └── tutorial-components.html
-├── e2e
-├── karma.conf.js
-├── package-lock.json
-├── package.json
-├── protractor.conf.js
-├── src
-│   ├── app
-│   │   ├── app.component.html
-│   │   ├── app.component.scss
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
-│   │   ├── app.module.ts
-│   │   ├── app.routing.ts
-│   │   ├── components
-│   │   │   ├── basicelements
-│   │   │   │   ├── basicelements.component.html
-│   │   │   │   ├── basicelements.component.scss
-│   │   │   │   ├── basicelements.component.spec.ts
-│   │   │   │   └── basicelements.component.ts
-│   │   │   ├── components.component.html
-│   │   │   ├── components.component.ts
-│   │   │   ├── components.module.ts
-│   │   │   ├── modal
-│   │   │   │   ├── modal.component.html
-│   │   │   │   ├── modal.component.scss
-│   │   │   │   ├── modal.component.spec.ts
-│   │   │   │   └── modal.component.ts
-│   │   │   ├── navigation
-│   │   │   │   ├── navigation.component.html
-│   │   │   │   ├── navigation.component.scss
-│   │   │   │   ├── navigation.component.spec.ts
-│   │   │   │   └── navigation.component.ts
-│   │   │   ├── notification
-│   │   │   │   ├── notification.component.html
-│   │   │   │   ├── notification.component.scss
-│   │   │   │   ├── notification.component.spec.ts
-│   │   │   │   └── notification.component.ts
-│   │   │   ├── nucleoicons
-│   │   │   │   ├── nucleoicons.component.html
-│   │   │   │   ├── nucleoicons.component.scss
-│   │   │   │   ├── nucleoicons.component.spec.ts
-│   │   │   │   └── nucleoicons.component.ts
-│   │   │   └── typography
-│   │   │       ├── typography.component.html
-│   │   │       ├── typography.component.scss
-│   │   │       ├── typography.component.spec.ts
-│   │   │       └── typography.component.ts
-│   │   ├── home
-│   │   │   ├── home.component.html
-│   │   │   ├── home.component.scss
-│   │   │   ├── home.component.spec.ts
-│   │   │   ├── home.component.ts
-│   │   │   └── home.module.ts
-│   │   ├── landing
-│   │   │   ├── landing.component.html
-│   │   │   ├── landing.component.scss
-│   │   │   ├── landing.component.spec.ts
-│   │   │   └── landing.component.ts
-│   │   ├── profile
-│   │   │   ├── profile.component.html
-│   │   │   ├── profile.component.scss
-│   │   │   ├── profile.component.spec.ts
-│   │   │   └── profile.component.ts
-│   │   ├── shared
-│   │   │   ├── footer
-│   │   │   │   ├── footer.component.html
-│   │   │   │   ├── footer.component.scss
-│   │   │   │   ├── footer.component.spec.ts
-│   │   │   │   └── footer.component.ts
-│   │   │   └── navbar
-│   │   │       ├── navbar.component.html
-│   │   │       ├── navbar.component.scss
-│   │   │       ├── navbar.component.spec.ts
-│   │   │       └── navbar.component.ts
-│   │   └── signup
-│   │       ├── signup.component.html
-│   │       ├── signup.component.scss
-│   │       ├── signup.component.spec.ts
-│   │       └── signup.component.ts
-│   ├── assets
-│   │   ├── css
-│   │   ├── fonts
-│   │   ├── img=
-│   │   └── sass
-│   │       ├── paper-kit
-│   │       └── paper-kit.scss
-│   ├── environments
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── main.ts
-│   ├── polyfills.ts
-│   ├── styles.scss
-│   ├── test.ts
-│   ├── tsconfig.app.json
-│   ├── tsconfig.spec.json
-│   └── typings.d.ts
-├── tsconfig.json
-└── tslint.json
-
-```
-## Browser Support
-
-At present, we officially aim to support the last two versions of the following browsers:
-
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
-
-
-## Resources
-- [Live Preview](https://demos.creative-tim.com/paper-kit-2-angular/)
-- Download Page: https://www.creative-tim.com/product/paper-kit-2-angular
-- Documentation is [here](https://demos.creative-tim.com/paper-kit-2-angular/documentation/tutorial)
-- License Agreement: https://www.creative-tim.com/license
-- Support: https://www.creative-tim.com/contact-us
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/paper-kit-2-angular/issues)
-
-## Reporting Issues
-We use GitHub Issues as the official bug tracker for the Paper Kit 2 Angular. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Paper Kit 2 Angular. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
-
-## Licensing
-
-- Copyright 2018 Creative Tim (https://www.creative-tim.com)
-- Creative Tim [license](https://www.creative-tim.com/license)
-
-## Useful Links
-
-- [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
-
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free) from Creative Tim
-
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new) (earn money)
-
-##### Social Media
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://instagram.com/creativetimofficial>
-
-[CHANGELOG]: ./CHANGELOG.md
-[LICENSE]: ./LICENSE.md
-[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg -->
+            <div class="col-md-6 text-center" routerLinkActive="active">
+                <a [routerLink]="['/user-profile']">
+                    <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image" class="img-rounded img-responsive" style="width: 100%">
+                    <a [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Profile Page</a>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+                <h2 class="title">Do you like what you see?</h2>
+                <p class="description">Cause if you do, it can be yours for Free. Hit the button below and download it. Start a new project or give an old Bootstrap 4 project a new look.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 download-area ml-auto mr-auto">
+                <a href="https://www.creative-tim.com/product/paper-kit-2" class="btn btn-warning btn-round">Download free HTML</a>
+                <a href="https://www.creative-tim.com/product/paper-kit-2-angular" class="btn btn-danger btn-round">Download free Angular</a>
+            </div>
+        </div>
+        <div class="row justify-content-md-center sharing-area text-center">
+            <div class="text-center col-md-12 col-lg-8">
+                <h3>Thank you for supporting us!</h3>
+            </div>
+            <div class="text-center col-md-12 col-lg-8">
+                <a href="#pablo" class="btn btn-twitter-bg twitter-sharrre btn-round" rel="tooltip" title="Tweet!">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                <a href="#pablo" class="btn btn-google-bg linkedin-sharrre btn-round" rel="tooltip" title="Share!">
+                    <i class="fa fa-google-plus"></i> Google
+                </a>
+                <a href="#pablo" class="btn btn-facebook-bg facebook-sharrre btn-round" rel="tooltip" title="Share!">
+                    <i class="fa fa-facebook-square"></i> Facebook
+                </a>
+                <a href="https://github.com/creativetimofficial/paper-kit" class="btn btn-github-bg btn-github sharrre btn-round" rel="tooltip" title="Star on Github">
+                    <i class="fa fa-github"></i> Star
+                </a>
+            </div>
+        </div>
+    </div>
+</div> -->
